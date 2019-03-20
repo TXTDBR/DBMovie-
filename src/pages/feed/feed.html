@@ -1,0 +1,51 @@
+<!--
+  Generated template for the FeedPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Feed</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="body">
+  <ion-card *ngFor="let filme of filmes">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://www.themoviedb.org/assets/1/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg" width="50px">
+      </ion-avatar>
+      <h2 class="title_nome"><a (click)="pushPage(filme.id)">{{ filme.original_title }}</a></h2>
+      <p class="data">{{ filme.release_date }}</p>
+    </ion-item>
+
+    <a (click)="pushPage(filme.id)"><img [src]="'https://image.tmdb.org/t/p/w300' + filme.backdrop_path"></a>
+
+    <ion-card-content>
+      <p>{{ filme.overview }}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{ filme.vote_count }}</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+</ion-content>
